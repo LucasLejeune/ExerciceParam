@@ -16,4 +16,9 @@ public class baseRestController {
         return List.of("paramètre 1", "paramètre 2", "paramètre 3");
     }
 
+    @GetMapping("/1-param")
+    public String get1Param() {
+        return "John Dupont";
+    }
+
 }

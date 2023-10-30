@@ -10,12 +10,25 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.ui.Model;
 
 @Controller
-@RequestMapping(value = "/base")
+@RequestMapping("/base")
 public class baseController {
 
-    @RequestMapping(value = "/params")
-    public String paramsMethod(Model model) {
-        List<String> params = List.of("paramètre 1", "paramètre 2", "paramètre 3");
+    @GetMapping("1-param")
+    public String get1Param(Model model) {
+        model.addAttribute("paramA", "John Dupont");
+        return "1-param";
+    }
+
+    @GetMapping("2-params")
+    public String get2Params(Model model) {
+        model.addAttribute("paramA", "John Dupont");
+        model.addAttribute("paramB", "Xavier Dupont");
+        return "2-params";
+    }
+
+    @GetMapping("coll-params")
+    public String getCollParams(Model model) {
+        List<String> params = List.of("John Dupont", "Maria Martez", "Chloée Smith");
         model.addAttribute("params", params);
         return "base";
     }
