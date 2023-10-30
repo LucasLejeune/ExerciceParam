@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+    <h1>Details des paramètres</h1>
+
+    <ul th:unless="${params.isEmpty()}">
+        <li th:each="p: ${params}"><span th:text="${p}"></span></li>
+    </ul>
+
+    <p th:if="${params.isEmpty()}">
+        Il n'y a aucun paramètre
+    </p>
+</body>
+
+</html>
